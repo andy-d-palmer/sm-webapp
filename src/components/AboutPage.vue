@@ -63,10 +63,17 @@
       </el-row>
       <el-row id="citation">
         <h2 id="how-shall-i-cite-metaspace-in-a-publication-">How shall I cite METASPACE in a publication?</h2>
-         <p>Please cite our publication <a
-        href="http://www.nature.com/nmeth/journal/v14/n1/full/nmeth.4072.html">(Palmer et al., 2016, Nature Methods)</a>
-        and
-        refer to <a href="http://annotate.metaspace2020.eu">http://annotate.metaspace2020.eu</a>.</p>
+        <p>Please cite our publication <a
+          href="http://www.nature.com/nmeth/journal/v14/n1/full/nmeth.4072.html">(Palmer et al., 2016, Nature Methods)</a>
+          and refer to <a href="http://annotate.metaspace2020.eu">http://annotate.metaspace2020.eu</a>.
+        </p>
+        <p>
+          For example, to report the annotations from the Palmer et al publication:
+          <br>
+          The mouse brain datasets were annotated using the METASPACE annotation engine against the
+          Human Metabolomics Database (<a href="http://www.ncbi.nlm.nih.gov/pubmed/23161693">Wishart et al, 2013, Nucleaic Acids Res.</a>) with a controlled FDR of 10% (<a href="http://www.nature.com/nmeth/journal/v14/n1/full/nmeth.4072.html">Palmer et al, 2016, Nature Methods</a>).
+          Annotations are openly available at (<a href="http://annotate.metaspace2020.eu">http://annotate.metaspace2020.eu</a>).
+        </p>
       </el-row>
       <el-row id="contact">
         <h2 id="how-to-stay-in-touch-">How to stay in touch?</h2>
