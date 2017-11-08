@@ -302,7 +302,6 @@
      },
 
      redraw () {
-       console.log('redraw ' + this.image.src);
        this.isLCMS = this.image.height == 1;
        let canvas = this.$refs.canvas,
            ctx = canvas.getContext("2d");
