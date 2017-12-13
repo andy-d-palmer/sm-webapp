@@ -8,7 +8,7 @@
     "dev": "cross-env NODE_ENV=development node --max_old_space_size=4096 server.js",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
     "build-ci": "cross-env NODE_ENV=production webpack --hide-modules",
-    "test": "testcafe firefox:headless tests/e2e/annotations.js --app 'yarn run dev' --no-color --app-init-delay=10000 --quarantine-mode",
+    "test": "testcafe firefox:headless tests/e2e/annotations.js --app 'yarn run dev' --no-color --app-init-delay=10000 --quarantine-mode --assertion-timeout=10000",
     "cucumber-test": "cucumber-js --compiler ts:ts-node/register tests/e2e/ --fail-fast"
   },
   "dependencies": {
@@ -37,7 +37,7 @@
     "graphql-tag": "^1.3.2",
     "ioredis": "^3.2.1",
     "js-cookie": "^2.1.4",
-    "jwt-simple": "^0.5.1",
+    "jwt-simple": "0.5.1",
     "knex": "^0.12.9",
     "lodash": "^4.17.4",
     "mkdirp": "https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.1.tgz",
