@@ -1,34 +1,40 @@
 <template>
   <div id="alignment-page">
-
     <div class="image-alignment-top">
       <div class="image-alignment-header" style="text-align: left">
-        <h3 style="margin: 5px; align-content: left">Dataset: {{ datasetName }}</h3>
-        <h4>Align the dataset with an optical image </h4>
+        <h3 style="margin: 5px; align-content: left">Align an optical image for  <i>{{ datasetName }}</i></h3>
+        <p> <b>Upload</b> an optical image, <b>align</b> the annotation image to align then <b>submit</b>.</p>
 
+          <el-button @click="toggleHints" id="hintsButton">
+          {{ showHints.text }}
+        </el-button>
         <div id="hints" v-if="showHints.status === true">
-          <p>
-            Follow three easy steps:
-        </p><ol>
-          <li> Select an optical image file </li>
-          <li> Move the annotation ion image until it matches the optical image </li>
-          <li> Press 'submit' to upload the aligned images </li>
-        </ol>
-          Hints:
-          <ul>
-          <li> Click and drag the annotation image to move it </li>
-          <li> Change the angle to rotate the annotation image</li>
-          <li> Use the scroll wheel on your mouse to zoom in and out</li>
-          <li> Select an annotation image that has recognisable spatial distribution</li>
-          <li> Click and drag the orange corners for fine tuning of the alignment</li>
+          <ul class="hint-list">
+          <li> <img class="mouse-hint-icon"
+                    src="../assets/translate-icon.png"
+                    title="Show/hide optical image"
+                    /> Click and drag the annotation image to move it </li>
+          <li> <img class="mouse-hint-icon"
+                    src="../assets/zoom-icon.png"
+                    title="Show/hide optical image"
+                    /> Use the mouse scroll wheel to zoom in and out</li>
+          <li> <img class="mouse-hint-icon"
+                    src="../assets/rotate-icon.png"
+                    title="Show/hide optical image"
+               /> Drag the angle slider to rotate the annotation image</li>
+          <li> <img class="mouse-hint-icon"
+                    src="../assets/images-icon.png"
+                    title="Show/hide optical image"
+          /> Choose an annotation image with a recognisable spatial distribution</li>
+          <li> <img class="mouse-hint-icon"
+                    src="../assets/corners-icon.jpg"
+                    title="Show/hide optical image"
+          /> Fine tune by moving the orange circles</li>
         </ul>
 
         </div>
-        <el-button @click="toggleHints" id="hintsButton">
-          {{ showHints.text }}
-        </el-button>
-      </div>
 
+      </div>
       <div class="image-alignment-settings">
         <div>
           <label class="optical-image-select el-button">
@@ -76,12 +82,10 @@
             </el-select>
           </el-pagination>
 
-          <el-form :inline="true">
-            <el-form-item label="Angle, °:" style="margin-bottom:5px;">
-              <el-input-number :min=-180 :max=180 :step=1 v-model="angle" size="small">
-              </el-input-number>
-            </el-form-item>
-          </el-form>
+          Angle, °:
+            <el-slider :min=-180 :max=180 :step=0.1 v-model="angle">
+            </el-slider>
+
         </div>
 
         <div class="optical-image-submit">
@@ -111,20 +115,20 @@
           </el-row>
         </div>
       </div>
-    </div>
-
-    <image-aligner
-        v-if="opticalImgUrl"
-        ref="aligner"
-        style="position:relative;top:200px;z-index:1;"
-        :annotImageOpacity="annotImageOpacity"
-        :opticalSrc="opticalImgUrl"
-        :initialTransform="initialTransform"
-        :padding="padding"
-        :rotationAngleDegrees="angle"
-        :massSpecSrc="massSpecSrc">
-    </image-aligner>
+      <image-aligner
+          v-if="opticalImgUrl"
+          ref="aligner"
+          style="position:relative;top:0px;z-index:1;"
+          :annotImageOpacity="annotImageOpacity"
+          :opticalSrc="opticalImgUrl"
+          :initialTransform="initialTransform"
+          :padding="padding"
+          :rotationAngleDegrees="angle"
+          :massSpecSrc="massSpecSrc">
+      </image-aligner>
   </div>
+  </div>
+
 </template>
 
 <script>
@@ -441,4 +445,14 @@
    flex-direction: column;
    justify-content: center;
  }
+
+  .mouse-hint-icon {
+    width:  20px;
+    height: 20px;
+  }
+
+  .hint-list{
+    list-style-type: none;
+  }
+
 </style>
